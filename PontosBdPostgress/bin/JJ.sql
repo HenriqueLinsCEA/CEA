@@ -1,0 +1,1 @@
+﻿select * from usuarios where login = 'ADM' and senha = '1006'
