@@ -1,0 +1,1 @@
+﻿insert into usuario (id_usuario, nome, cpf, tipo, login, senha) values ('1', 'JOÃO HENRIQUE LINS DA FONSECA','02811064443','ADMINISTRADOR','HENRIQUE','1006')
