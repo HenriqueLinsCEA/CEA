@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Oct 22 17:05:29 GMT-03:00 2015:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instância a816c00e-0150-9127-fe87-000007060bc8
+no diretório de banco de dados C:\workspace\PontosBdDerbyInterno\Pontos 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_51-b16
+user.dir=C:\workspace\PontosBdDerbyInterno
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Carregador de classe do banco de dados iniciado - derby.database.classpath=''
