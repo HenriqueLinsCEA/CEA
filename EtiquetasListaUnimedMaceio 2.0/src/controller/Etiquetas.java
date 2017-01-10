@@ -101,7 +101,7 @@ public class Etiquetas {
 				String linha_2 = linha.substring(926, 1098);
 				atual = linha_2.substring(0,5);
 				
-				Pattern cep = Pattern.compile("([5]\\d\\d\\d\\d\\d\\d\\d)");
+				Pattern cep = Pattern.compile("([3-4-5]\\d\\d\\d\\d\\d\\d\\d)");
 				Matcher matcher = cep.matcher(linha_2);
 
 				if (matcher.find()) {
