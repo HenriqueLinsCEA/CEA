@@ -402,19 +402,18 @@ public class TelaAplicativo extends JFrame {
 		contentPane.add(btnSair);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaAplicativo.class
-				.getResource("/image/photo.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(TelaAplicativo.class.getResource("/image/avatar.png")));
 		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(26, 19, 120, 76);
+		lblNewLabel.setBounds(27, 8, 163, 103);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Gerador de etiquetas e listagens");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(161, 19, 259, 76);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblNomeprog = new JLabel("Gerador de etiquetas");
+		lblNomeprog.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNomeprog.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNomeprog.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblNomeprog.setBounds(200, 8, 220, 103);
+		contentPane.add(lblNomeprog);
 	}
 
 	public static File getLocal() {
