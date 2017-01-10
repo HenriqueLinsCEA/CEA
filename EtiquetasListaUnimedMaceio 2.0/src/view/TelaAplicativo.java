@@ -413,7 +413,7 @@ public class TelaAplicativo extends JFrame {
 		lblNomeprog.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNomeprog.setFont(new Font("Tahoma", Font.BOLD, 22));
 		lblNomeprog.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNomeprog.setBounds(161, 19, 262, 103);
+		lblNomeprog.setBounds(161, 23, 262, 103);
 		contentPane.add(lblNomeprog);
 	}
 
