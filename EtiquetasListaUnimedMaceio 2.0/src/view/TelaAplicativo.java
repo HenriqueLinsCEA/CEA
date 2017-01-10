@@ -71,10 +71,8 @@ public class TelaAplicativo extends JFrame {
 	 */
 	public TelaAplicativo() {
 		setType(Type.POPUP);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				TelaAplicativo.class
-						.getResource("/image/f121d135f320140728102619.jpg")));
-		setTitle("Etiquetas e Listas Unimed Norte Nordeste");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAplicativo.class.getResource("/image/avatar.jpg")));
+		setTitle("Unimed Etiqueta e Listagem");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -400,17 +398,20 @@ public class TelaAplicativo extends JFrame {
 		});
 		btnSair.setBounds(293, 226, 130, 23);
 		contentPane.add(btnSair);
+		
+		
+		
+		
+		JLabel lbllOGO = new JLabel("");
+		lbllOGO.setIcon(new ImageIcon(TelaAplicativo.class.getResource("/image/avatar.jpg")));
+		lbllOGO.setHorizontalTextPosition(SwingConstants.CENTER);
+		lbllOGO.setHorizontalAlignment(SwingConstants.CENTER);
+		lbllOGO.setBounds(11, 13, 170, 113);
+		contentPane.add(lbllOGO);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaAplicativo.class.getResource("/image/avatar.jpg")));
-		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(11, 13, 170, 113);
-		contentPane.add(lblNewLabel);
-
-		JLabel lblNomeprog = new JLabel("Gerador de etiquetas");
+		JLabel lblNomeprog = new JLabel("Etiquetas e Listagem");
 		lblNomeprog.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNomeprog.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNomeprog.setFont(new Font("Tahoma", Font.BOLD, 22));
 		lblNomeprog.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNomeprog.setBounds(161, 19, 262, 103);
 		contentPane.add(lblNomeprog);
