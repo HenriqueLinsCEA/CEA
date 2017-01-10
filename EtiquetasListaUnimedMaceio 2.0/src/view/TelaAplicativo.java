@@ -84,13 +84,13 @@ public class TelaAplicativo extends JFrame {
 		contentPane.setLayout(null);
 
 		tfAbrir = new JTextField();
-		tfAbrir.setBounds(26, 118, 262, 20);
+		tfAbrir.setBounds(29, 138, 257, 20);
 		contentPane.add(tfAbrir);
 		tfAbrir.setColumns(10);
 
 		tfSalvar = new JTextField();
 		tfSalvar.setColumns(10);
-		tfSalvar.setBounds(26, 163, 262, 20);
+		tfSalvar.setBounds(29, 183, 257, 20);
 		contentPane.add(tfSalvar);
 
 		JButton btnAbrirArquivo = new JButton("Abrir Arquivo");
@@ -133,7 +133,7 @@ public class TelaAplicativo extends JFrame {
 
 			}
 		});
-		btnAbrirArquivo.setBounds(293, 117, 127, 23);
+		btnAbrirArquivo.setBounds(296, 137, 127, 23);
 		contentPane.add(btnAbrirArquivo);
 
 		JButton btnSalvarArquivo = new JButton("Salvar Arquivo");
@@ -228,7 +228,7 @@ public class TelaAplicativo extends JFrame {
 
 			}
 		});
-		btnSalvarArquivo.setBounds(293, 160, 127, 23);
+		btnSalvarArquivo.setBounds(296, 182, 127, 23);
 		contentPane.add(btnSalvarArquivo);
 
 		btnEtiqueta = new JButton("Etiqueta");
@@ -307,7 +307,7 @@ public class TelaAplicativo extends JFrame {
 
 			}
 		});
-		btnEtiqueta.setBounds(29, 215, 127, 23);
+		btnEtiqueta.setBounds(29, 226, 127, 23);
 		contentPane.add(btnEtiqueta);
 
 		btnListagem = new JButton("Listas");
@@ -387,7 +387,7 @@ public class TelaAplicativo extends JFrame {
 
 			}
 		});
-		btnListagem.setBounds(161, 215, 127, 23);
+		btnListagem.setBounds(161, 226, 127, 23);
 		contentPane.add(btnListagem);
 
 		JButton btnSair = new JButton("Sair");
@@ -398,21 +398,21 @@ public class TelaAplicativo extends JFrame {
 
 			}
 		});
-		btnSair.setBounds(293, 215, 127, 23);
+		btnSair.setBounds(293, 226, 130, 23);
 		contentPane.add(btnSair);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaAplicativo.class.getResource("/image/avatar.png")));
+		lblNewLabel.setIcon(new ImageIcon(TelaAplicativo.class.getResource("/image/avatar.jpg")));
 		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(27, 8, 163, 103);
+		lblNewLabel.setBounds(11, 13, 170, 113);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNomeprog = new JLabel("Gerador de etiquetas");
 		lblNomeprog.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNomeprog.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNomeprog.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNomeprog.setBounds(200, 8, 220, 103);
+		lblNomeprog.setBounds(161, 19, 262, 103);
 		contentPane.add(lblNomeprog);
 	}
 
