@@ -3,71 +3,98 @@ package controller;
 import java.sql.Date;
 
 public class Cliente {
-	
+
 	private int id_cliente;
 	private String nomeFantasia;
 	private String razaoSocial;
 	private String cnpj;
+	private String inscricaoEstadual;
 	private String telefoneCorporativo;
 	private String emailCorporativo;
 	private Endereco endereco;
 	private Contato contato;
 	private Date clienteDesde;
-	
+
 	public int getId_cliente() {
 		return id_cliente;
 	}
+
 	public void setId_cliente(int id_cliente) {
 		this.id_cliente = id_cliente;
 	}
+
 	public String getNomeFantasia() {
 		return nomeFantasia;
 	}
+
 	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
 	}
+
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
+
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
+
 	public String getCnpj() {
 		return cnpj;
 	}
+
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+
+	public String getInscricaoEstadual() {
+		return inscricaoEstadual;
+	}
+
+	public void setInscricaoEstadual(String inscricaoEstadual) {
+		this.inscricaoEstadual = inscricaoEstadual;
+	}
+
 	public String getTelefoneCorporativo() {
 		return telefoneCorporativo;
 	}
+
 	public void setTelefoneCorporativo(String telefoneCorporativo) {
 		this.telefoneCorporativo = telefoneCorporativo;
 	}
+
 	public String getEmailCorporativo() {
 		return emailCorporativo;
 	}
+
 	public void setEmailCorporativo(String emailCorporativo) {
 		this.emailCorporativo = emailCorporativo;
 	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
 	public Contato getContato() {
 		return contato;
 	}
+
 	public void setContato(Contato contato) {
 		this.contato = contato;
 	}
+
 	public Date getClienteDesde() {
 		return clienteDesde;
 	}
+
 	public void setClienteDesde(Date clienteDesde) {
 		this.clienteDesde = clienteDesde;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -83,6 +110,7 @@ public class Cliente {
 		result = prime * result + ((telefoneCorporativo == null) ? 0 : telefoneCorporativo.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -136,7 +164,5 @@ public class Cliente {
 			return false;
 		return true;
 	}
-
-	
 
 }
