@@ -39,9 +39,11 @@ public class TelaAplicativo extends JFrame {
 	private JPanel contentPane;
 	private JTextField tfAbrir;
 	private static File local;
-	String caminhoUltimoArquivo = "";
+	String caminhoUltimoArquivo = "C:/";
 	String caminhoAbrir = "";
+	String caminhoCompleto = "";
 	private JButton btnEtiqueta;
+	private JButton btnAbrirArquivo;
 
 	/**
 	 * Launch the application.
@@ -83,17 +85,17 @@ public class TelaAplicativo extends JFrame {
 		contentPane.add(tfAbrir);
 		tfAbrir.setColumns(10);
 
-		JButton btnAbrirArquivo = new JButton("Abrir Arquivo");
+		btnAbrirArquivo = new JButton("Abrir Arquivo");
+		getRootPane().setDefaultButton(btnAbrirArquivo);
 		btnAbrirArquivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				JFileChooser escolherArquivo = new JFileChooser();
-				FileNameExtensionFilter filtroExtensao = new FileNameExtensionFilter(".txt", "txt");
 
+				FileNameExtensionFilter filtroExtensao = new FileNameExtensionFilter(".txt", "txt");
 				FileNameExtensionFilter filtroExtensao2 = new FileNameExtensionFilter(".csv", "csv");
 
 				escolherArquivo.addChoosableFileFilter(filtroExtensao);
-
 				escolherArquivo.addChoosableFileFilter(filtroExtensao2);
 
 				File pathInicial = new File(caminhoUltimoArquivo);
@@ -110,11 +112,23 @@ public class TelaAplicativo extends JFrame {
 					JOptionPane.showMessageDialog(null, arquivo);
 					tfAbrir.setText(arquivo.getPath());
 
+					getRootPane().setDefaultButton(btnEtiqueta);
+
 				}
 
-				String caminhoCompleto = escolherArquivo.getSelectedFile().getAbsolutePath();
-				caminhoUltimoArquivo = caminhoCompleto.substring(0, caminhoCompleto.lastIndexOf("\\"));
-				caminhoAbrir = escolherArquivo.getSelectedFile().getAbsolutePath();
+				try {
+
+					caminhoCompleto = escolherArquivo.getSelectedFile().getAbsolutePath();
+					caminhoUltimoArquivo = caminhoCompleto.substring(0, caminhoCompleto.lastIndexOf("\\"));
+					caminhoAbrir = escolherArquivo.getSelectedFile().getAbsolutePath();
+
+				} catch (Exception e2) {
+
+					caminhoCompleto = "";
+					caminhoUltimoArquivo = caminhoCompleto;
+					caminhoAbrir = caminhoCompleto;
+
+				}
 
 			}
 		});
@@ -164,6 +178,8 @@ public class TelaAplicativo extends JFrame {
 
 							tfAbrir.setText("");
 
+							getRootPane().setDefaultButton(btnAbrirArquivo);
+
 						}
 
 					} catch (HeadlessException | IOException e1) {
@@ -188,7 +204,7 @@ public class TelaAplicativo extends JFrame {
 		btnEtiqueta.setBounds(29, 208, 194, 23);
 		contentPane.add(btnEtiqueta);
 
-		JButton btnSair = new JButton("Sair");
+		JButton btnSair = new JButton("Cancelar");
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 

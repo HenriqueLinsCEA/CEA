@@ -121,13 +121,13 @@ public class Etiquetas {
 					System.out.println(linha.substring(926, 931) + "-"
 							+ linha.substring(9, 28) + ";"
 							+ linha.substring(29, 54).toUpperCase() + ";"
-							+ linha_2.substring(7, posicao).toUpperCase() + ";"
+							+ linha_2.substring(8, posicao).toUpperCase() + ";"
 							+ linha_2.substring(posicao, 164).toUpperCase());
 
 					bf.append(linha.substring(926, 931) + "-"
 							+ linha.substring(9, 28) + ";"
 							+ linha.substring(29, 54).toUpperCase() + ";"
-							+ linha_2.substring(7, posicao).toUpperCase() + ";"
+							+ linha_2.substring(8, posicao).toUpperCase() + ";"
 							+ linha_2.substring(posicao, 164).toUpperCase());
 
 					bf.newLine();
