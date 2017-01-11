@@ -2,19 +2,25 @@ package controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
+import javax.swing.JOptionPane;
+
 public class Listas {
 
-	public String abrir;
-	public String salvar;
-	boolean sucesso = false;
-	String linha;
-	int contador;
+	private String abrir;
+	private String salvar;
+	private boolean sucesso = false;
+	private String linha;
+	private int contador;
+	private OutputStreamWriter outputStreamWriter;
+	private BufferedReader lerArq;
+	private OutputStream out;
 
 	public boolean isSucesso() {
 		return sucesso;
@@ -56,19 +62,33 @@ public class Listas {
 		this.contador = contador;
 	}
 
-	public boolean SalvarListas(String abrir) throws IOException {
+	@SuppressWarnings("resource")
+	public boolean SalvarListas(String abrir) throws IOException, java.io.FileNotFoundException {
 
 		this.abrir = abrir;
 		this.salvar = abrir + "-LI";
-
+		
+		File file = new File(this.salvar.toString() + ".csv");
 		FileReader arq = new FileReader(this.abrir);
+		
 		BufferedReader lerArq = new BufferedReader(arq);
-
-		OutputStream out = new FileOutputStream(this.salvar.toString() + ".csv");
-		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(out);
+					
+		try {
+			
+			out = new FileOutputStream(file);
+			lerArq = new BufferedReader(arq);
+			
+			
+		} catch (Exception e) {
+			
+			JOptionPane.showMessageDialog(null, "O arquivo já está sendo usado por outro processo");
+			return sucesso;
+		}
+		
+		outputStreamWriter = new OutputStreamWriter(out);
 		BufferedWriter bf = new BufferedWriter(outputStreamWriter);
-
-		bf.append("Arquivos: "+";" + "Original:  " + this.abrir.toUpperCase() + ";" + "Novo: " + this.salvar.toUpperCase());
+				
+		bf.append("Arquivo: "+";" +  file.getName());
 		bf.newLine();
 		bf.append("ID"+";" + "Número " + ";" + "Nome "+ ";" + "Família" + ";"+ "Tipo" );
 		bf.newLine();
@@ -98,11 +118,21 @@ public class Listas {
 			return sucesso;
 
 		}
-
+		
+					
+	
 		bf.append("Total: " + (contador - 1));
 		bf.close();
 		lerArq.close();
 		return sucesso;
+	}
+
+	public BufferedReader getLerArq() {
+		return lerArq;
+	}
+
+	public void setLerArq(BufferedReader lerArq) {
+		this.lerArq = lerArq;
 	}
 
 }

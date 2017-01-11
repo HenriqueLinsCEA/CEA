@@ -124,7 +124,7 @@ public class TelaAplicativo extends JFrame {
 
 				} catch (Exception e2) {
 
-					caminhoCompleto = "";
+					caminhoCompleto = "C:/";
 					caminhoUltimoArquivo = caminhoCompleto;
 					caminhoAbrir = caminhoCompleto;
 
@@ -162,11 +162,11 @@ public class TelaAplicativo extends JFrame {
 							JOptionPane.showMessageDialog(null,
 									"Erro abrir o arquivo. \nVerifique se abriu o arquivo correto!");
 
-							File deletar = new File(tfAbrir.getText().toUpperCase() + "-ETI.csv");
+							File deletar = new File(tfAbrir.getText().toUpperCase() + "-ETI.CSV");
 
 							deletar.delete();
 
-							File deletar2 = new File(tfAbrir.getText().toUpperCase() + "-LI.csv");
+							File deletar2 = new File(tfAbrir.getText().toUpperCase() + "-LI.CSV");
 
 							deletar2.delete();
 

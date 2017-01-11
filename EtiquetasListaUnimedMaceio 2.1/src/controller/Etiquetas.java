@@ -16,11 +16,14 @@ import javax.swing.JOptionPane;
 
 public class Etiquetas {
 
-	String abrir;
-	String salvar;
-	String linha = "";
-	String anterior = "";
-	String atual = "";
+	private String abrir;
+	private String salvar;
+	private String linha = "";
+	private String anterior = "";
+	private String atual = "";
+	private OutputStream out;
+	private BufferedReader lerArq;
+	
 	boolean sucesso = false;
 
 	public String getLinha() {
@@ -79,9 +82,17 @@ public class Etiquetas {
 
 		File file = new File(this.salvar.toString() + ".csv");
 		FileReader arq = new FileReader(this.abrir);
-
-		OutputStream out = new FileOutputStream(file);
-		BufferedReader lerArq = new BufferedReader(arq);
+		
+		try {
+			
+			out = new FileOutputStream(file);
+			lerArq = new BufferedReader(arq);
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "O arquivo já está sendo usado por outro processo");
+			return sucesso;
+		
+		}
 
 		OutputStreamWriter outputStreamWriter = new OutputStreamWriter(out);
 		BufferedWriter bf = new BufferedWriter(outputStreamWriter);
@@ -101,7 +112,7 @@ public class Etiquetas {
 				String linha_2 = linha.substring(926, 1098);
 				atual = linha_2.substring(0,5);
 				
-				Pattern cep = Pattern.compile("([3-4-5]\\d\\d\\d\\d\\d\\d\\d)");
+				Pattern cep = Pattern.compile("([2-3-4-5]\\d\\d\\d\\d\\d\\d\\d)");
 				Matcher matcher = cep.matcher(linha_2);
 
 				if (matcher.find()) {
@@ -118,13 +129,7 @@ public class Etiquetas {
 
 				if (atual.equals(anterior) == false) {
 
-					System.out.println(linha.substring(926, 931) + "-"
-							+ linha.substring(9, 28) + ";"
-							+ linha.substring(29, 54).toUpperCase() + ";"
-							+ linha_2.substring(8, posicao).toUpperCase() + ";"
-							+ linha_2.substring(posicao, 164).toUpperCase());
-
-					bf.append(linha.substring(926, 931) + "-"
+							bf.append(linha.substring(926, 931) + "-"
 							+ linha.substring(9, 28) + ";"
 							+ linha.substring(29, 54).toUpperCase() + ";"
 							+ linha_2.substring(8, posicao).toUpperCase() + ";"
