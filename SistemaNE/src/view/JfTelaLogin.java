@@ -111,7 +111,7 @@ public class JfTelaLogin extends JFrame {
 					
 					UIManager
 					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-					JfTelaPrincipal frame = new JfTelaPrincipal();
+					JfTelaInicial frame = new JfTelaInicial();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					

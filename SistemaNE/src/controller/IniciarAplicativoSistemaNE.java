@@ -6,7 +6,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import view.JfTelaLogin;
 
 
-public class AppStart {
+public class IniciarAplicativoSistemaNE {
 	
 	
 
@@ -14,7 +14,7 @@ public class AppStart {
 			InstantiationException, IllegalAccessException,
 			UnsupportedLookAndFeelException {
 
-		new AppStart().iniciar();
+		new IniciarAplicativoSistemaNE().iniciar();
 
 	}
 

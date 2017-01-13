@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-public class JdTelaCliente extends JDialog {
+public class JdTelaUsuario extends JDialog {
 
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class JdTelaCliente extends JDialog {
 			
 			UIManager
 			.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-			JdTelaCliente dialog = new JdTelaCliente();
+			JdTelaUsuario dialog = new JdTelaUsuario();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			
 		} catch (Exception e) {
@@ -41,24 +41,24 @@ public class JdTelaCliente extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public JdTelaCliente() {
+	public JdTelaUsuario() {
 		setResizable(false);
 		setModal(true);
 		setTitle("Clientes");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(JdTelaCliente.class.getResource("/image/ne.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JdTelaUsuario.class.getResource("/image/ne.png")));
 		setBounds(100, 100, 1000, 600);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		JButton btnNewButton = new JButton("Cadastro Clientes");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCadastroUsuarios = new JButton("Cadastro Usuarios");
+		btnCadastroUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
 					
 					UIManager
 					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-					JdTelaCadastroCliente dialog = new JdTelaCadastroCliente();
+					JdTelaCadastroUsuario dialog = new JdTelaCadastroUsuario();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setLocationRelativeTo(null);
 					dialog.setVisible(true);
@@ -76,14 +76,14 @@ public class JdTelaCliente extends JDialog {
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
 					.addGap(31)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnCadastroUsuarios, GroupLayout.PREFERRED_SIZE, 178, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(775, Short.MAX_VALUE))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
 					.addGap(90)
-					.addComponent(btnNewButton)
+					.addComponent(btnCadastroUsuarios)
 					.addContainerGap(415, Short.MAX_VALUE))
 		);
 		contentPanel.setLayout(gl_contentPanel);
