@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author henri
+ * @author henrique Lins
  *
  */
 package view;

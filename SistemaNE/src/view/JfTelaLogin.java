@@ -15,11 +15,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import controller.Usuario;
 
-public class JfLogin extends JFrame {
+public class JfTelaLogin extends JFrame {
 
 	/**
 	 * 
@@ -41,7 +42,7 @@ public class JfLogin extends JFrame {
 				try {
 					UIManager
 							.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-					JfLogin frame = new JfLogin();
+					JfTelaLogin frame = new JfTelaLogin();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					
@@ -56,9 +57,9 @@ public class JfLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JfLogin() {
+	public JfTelaLogin() {
 		setType(Type.POPUP);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(JfLogin.class.getResource("/image/ne.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JfTelaLogin.class.getResource("/image/ne.png")));
 		setResizable(false);
 		setTitle("Login de Usu\u00E1rio");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -96,16 +97,30 @@ public class JfLogin extends JFrame {
 		//listaUsuario = new ControleMetodosUsuario().listarUsuario();
 
 		
-		for(Usuario user : listaUsuario){
+		//for(Usuario user : listaUsuario){
 			
 			//cbUsuario.addItem(user.getLogin());
 			
-		}
+		//}
 	
 		
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				try {
+					
+					UIManager
+					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+					JfTelaPrincipal frame = new JfTelaPrincipal();
+					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+					
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+						| UnsupportedLookAndFeelException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				
 
 
