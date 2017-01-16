@@ -44,13 +44,13 @@ public class JdTelaUsuario extends JDialog {
 	public JdTelaUsuario() {
 		setResizable(false);
 		setModal(true);
-		setTitle("Clientes");
+		setTitle("Usu\u00E1rios");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(JdTelaUsuario.class.getResource("/image/ne.png")));
 		setBounds(100, 100, 1000, 600);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		JButton btnCadastroUsuarios = new JButton("Cadastro Usuarios");
+		JButton btnCadastroUsuarios = new JButton("Cadastro de Usuarios");
 		btnCadastroUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

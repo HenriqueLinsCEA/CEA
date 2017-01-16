@@ -96,10 +96,10 @@ public class JdTelaCadastroCliente extends JDialog {
 		formattedTextField.setBounds(484, 109, 210, 20);
 		formattedTextField.setColumns(10);
 		
-		JLabel label_4 = new JLabel("Cadastro Clientes");
-		label_4.setBounds(88, 51, 169, 14);
-		label_4.setForeground(Color.BLACK);
-		label_4.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		JLabel lblCadastroDeClientes = new JLabel("Cadastro de Clientes");
+		lblCadastroDeClientes.setBounds(88, 51, 169, 14);
+		lblCadastroDeClientes.setForeground(Color.BLACK);
+		lblCadastroDeClientes.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(88, 76, 606, 9);
@@ -197,7 +197,7 @@ public class JdTelaCadastroCliente extends JDialog {
 		textField_10.setColumns(10);
 		contentPanel.setLayout(null);
 		contentPanel.add(label);
-		contentPanel.add(label_4);
+		contentPanel.add(lblCadastroDeClientes);
 		contentPanel.add(separator);
 		contentPanel.add(label_1);
 		contentPanel.add(label_3);

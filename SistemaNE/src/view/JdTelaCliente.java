@@ -50,7 +50,7 @@ public class JdTelaCliente extends JDialog {
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		JButton btnNewButton = new JButton("Cadastro Clientes");
+		JButton btnNewButton = new JButton("Cadastro de Clientes");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

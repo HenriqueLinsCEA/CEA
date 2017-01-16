@@ -109,11 +109,16 @@ public class JfTelaLogin extends JFrame {
 				
 				try {
 					
+					dispose();
+					
 					UIManager
 					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 					JfTelaInicial frame = new JfTelaInicial();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
+					
+					
+					
 					
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
 						| UnsupportedLookAndFeelException e1) {
