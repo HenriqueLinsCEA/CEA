@@ -21,7 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import controller.Cliente;
+import controller.cliente.Cliente;
 
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;

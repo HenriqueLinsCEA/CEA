@@ -23,8 +23,8 @@ public class Contato {
 	public String getEmail() {
 		return emailContato;
 	}
-	public void setEmail(String email) {
-		this.emailContato = email;
+	public void setEmail(String emailContato) {
+		this.emailContato = emailContato;
 	}
 	public String getTelefone01() {
 		return telefoneContato01;

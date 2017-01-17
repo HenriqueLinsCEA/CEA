@@ -1,8 +1,11 @@
-package controller;
+package controller.cliente;
 
 import java.sql.Date;
 
 import javax.swing.text.MaskFormatter;
+
+import controller.Contato;
+import controller.Endereco;
 
 public class Cliente {
 
@@ -15,60 +18,83 @@ public class Cliente {
 	private Endereco endereco;
 	private Contato contato;
 	private Date clienteDesde;
+
+	public void cliente() {
+
+	}
+
 	public int getId_cliente() {
 		return id_cliente;
 	}
+
 	public void setId_cliente(int id_cliente) {
 		this.id_cliente = id_cliente;
 	}
+
 	public String getNomeFantasia() {
 		return nomeFantasia;
 	}
+
 	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
 	}
+
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
+
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
+
 	public String getCnpj() {
 		return cnpj;
 	}
+
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+
 	public String getInscricaoEstadual() {
 		return inscricaoEstadual;
 	}
+
 	public void setInscricaoEstadual(String inscricaoEstadual) {
 		this.inscricaoEstadual = inscricaoEstadual;
 	}
+
 	public Boolean getStatusCliente() {
 		return statusCliente;
 	}
+
 	public void setStatusCliente(Boolean statusCliente) {
 		this.statusCliente = statusCliente;
 	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
 	public Contato getContato() {
 		return contato;
 	}
+
 	public void setContato(Contato contato) {
 		this.contato = contato;
 	}
+
 	public Date getClienteDesde() {
 		return clienteDesde;
 	}
+
 	public void setClienteDesde(Date clienteDesde) {
 		this.clienteDesde = clienteDesde;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -84,6 +110,7 @@ public class Cliente {
 		result = prime * result + ((statusCliente == null) ? 0 : statusCliente.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -138,74 +165,73 @@ public class Cliente {
 		return true;
 	}
 
-	public static MaskFormatter CPF(String Mascara){  
-        
-	       MaskFormatter F_Mascara = new MaskFormatter();  
-	       try{  
-	           F_Mascara.setMask("###.###.###-##"); //Atribui a mascara  
-	           F_Mascara.setPlaceholderCharacter(' '); //Caracter para preencimento   
-	       }  
-	       catch (Exception excecao) {  
-	       excecao.printStackTrace();  
-	       }   
-	       return F_Mascara;  
-	}   
-	
-	public static MaskFormatter CNPJ(String Mascara){  
-     
-	       MaskFormatter F_Mascara = new MaskFormatter();  
-	       try{  
-	           F_Mascara.setMask("##.###.###/####-##"); //Atribui a mascara  
-	           F_Mascara.setPlaceholderCharacter(' '); //Caracter para preencimento   
-	       }  
-	       catch (Exception excecao) {  
-	       excecao.printStackTrace();  
-	       }   
-	       return F_Mascara;  
-	}   
-	
-	public static MaskFormatter TelefoneFixo(String Mascara){  
-     
-	       MaskFormatter F_Mascara = new MaskFormatter();  
-	       try{  
-	           F_Mascara.setMask("(##) ####-####"); //Atribui a mascara  
-	           F_Mascara.setPlaceholderCharacter(' '); //Caracter para preencimento   
-	       }  
-	       catch (Exception excecao) {  
-	       excecao.printStackTrace();  
-	       }   
-	       return F_Mascara;  
-	}   
-	
-	public static MaskFormatter TelefoneCelular(String Mascara){  
-     
-	       MaskFormatter F_Mascara = new MaskFormatter();  
-	       try{  
-	           F_Mascara.setMask("(##) #####-####"); //Atribui a mascara  
-	           F_Mascara.setPlaceholderCharacter(' '); //Caracter para preencimento   
-	       }  
-	       catch (Exception excecao) {  
-	       excecao.printStackTrace();  
-	       }   
-	       return F_Mascara;  
-	}   
-	
-	public static MaskFormatter CEP(String Mascara){  
-     
-	       MaskFormatter F_Mascara = new MaskFormatter();  
-	       try{  
-	           F_Mascara.setMask("#####-###"); //Atribui a mascara  
-	           F_Mascara.setPlaceholderCharacter(' '); //Caracter para preencimento   
-	       }  
-	       catch (Exception excecao) {  
-	       excecao.printStackTrace();  
-	       }   
-	       return F_Mascara;  
-	}   
-	
-	public static String removerMascara(String cpf){  
-	    return cpf.replaceAll("\\D", "");  
-	} 
-	
+	public static MaskFormatter CPF(String Mascara) {
+
+		MaskFormatter F_Mascara = new MaskFormatter();
+		try {
+			F_Mascara.setMask("###.###.###-##"); // Atribui a mascara
+			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
+													// preencimento
+		} catch (Exception excecao) {
+			excecao.printStackTrace();
+		}
+		return F_Mascara;
+	}
+
+	public static MaskFormatter CNPJ(String Mascara) {
+
+		MaskFormatter F_Mascara = new MaskFormatter();
+		try {
+			F_Mascara.setMask("##.###.###/####-##"); // Atribui a mascara
+			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
+													// preencimento
+		} catch (Exception excecao) {
+			excecao.printStackTrace();
+		}
+		return F_Mascara;
+	}
+
+	public static MaskFormatter TelefoneFixo(String Mascara) {
+
+		MaskFormatter F_Mascara = new MaskFormatter();
+		try {
+			F_Mascara.setMask("(##) ####-####"); // Atribui a mascara
+			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
+													// preencimento
+		} catch (Exception excecao) {
+			excecao.printStackTrace();
+		}
+		return F_Mascara;
+	}
+
+	public static MaskFormatter TelefoneCelular(String Mascara) {
+
+		MaskFormatter F_Mascara = new MaskFormatter();
+		try {
+			F_Mascara.setMask("(##) #####-####"); // Atribui a mascara
+			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
+													// preencimento
+		} catch (Exception excecao) {
+			excecao.printStackTrace();
+		}
+		return F_Mascara;
+	}
+
+	public static MaskFormatter CEP(String Mascara) {
+
+		MaskFormatter F_Mascara = new MaskFormatter();
+		try {
+			F_Mascara.setMask("#####-###"); // Atribui a mascara
+			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
+													// preencimento
+		} catch (Exception excecao) {
+			excecao.printStackTrace();
+		}
+		return F_Mascara;
+	}
+
+	public static String removerMascara(String cpf) {
+		return cpf.replaceAll("\\D", "");
+	}
 
 }
