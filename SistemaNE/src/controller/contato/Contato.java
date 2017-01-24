@@ -1,13 +1,19 @@
-package controller;
+package controller.contato;
 
 public class Contato {
 	
 	private int id_contato;
 	private String nomeContato;
 	private String emailContato;
-	private String telefoneContato01;
-	private String telefoneContato02;
+	private String telefoneFixo;
+	private String telefoneCelular;
 	
+	public Contato(String nomeContato, String emailContato, String telefoneFixo, String telefoneCelular) {
+		this.nomeContato = nomeContato;
+		this.emailContato = emailContato;
+		this.telefoneFixo = telefoneFixo;
+		this.telefoneCelular = telefoneCelular;
+	}
 	public int getId_contato() {
 		return id_contato;
 	}
@@ -20,23 +26,23 @@ public class Contato {
 	public void setNomeContato(String nomeContato) {
 		this.nomeContato = nomeContato;
 	}
-	public String getEmail() {
+	public String getEmailContato() {
 		return emailContato;
 	}
-	public void setEmail(String emailContato) {
+	public void setEmailContato(String emailContato) {
 		this.emailContato = emailContato;
 	}
 	public String getTelefone01() {
-		return telefoneContato01;
+		return telefoneFixo;
 	}
 	public void setTelefone01(String telefone01) {
-		this.telefoneContato01 = telefone01;
+		this.telefoneFixo = telefone01;
 	}
 	public String getTelefone02() {
-		return telefoneContato02;
+		return telefoneCelular;
 	}
 	public void setTelefone02(String telefone02) {
-		this.telefoneContato02 = telefone02;
+		this.telefoneCelular = telefone02;
 	}
 	@Override
 	public int hashCode() {
@@ -45,8 +51,8 @@ public class Contato {
 		result = prime * result + ((emailContato == null) ? 0 : emailContato.hashCode());
 		result = prime * result + id_contato;
 		result = prime * result + ((nomeContato == null) ? 0 : nomeContato.hashCode());
-		result = prime * result + ((telefoneContato01 == null) ? 0 : telefoneContato01.hashCode());
-		result = prime * result + ((telefoneContato02 == null) ? 0 : telefoneContato02.hashCode());
+		result = prime * result + ((telefoneFixo == null) ? 0 : telefoneFixo.hashCode());
+		result = prime * result + ((telefoneCelular == null) ? 0 : telefoneCelular.hashCode());
 		return result;
 	}
 	@Override
@@ -70,15 +76,15 @@ public class Contato {
 				return false;
 		} else if (!nomeContato.equals(other.nomeContato))
 			return false;
-		if (telefoneContato01 == null) {
-			if (other.telefoneContato01 != null)
+		if (telefoneFixo == null) {
+			if (other.telefoneFixo != null)
 				return false;
-		} else if (!telefoneContato01.equals(other.telefoneContato01))
+		} else if (!telefoneFixo.equals(other.telefoneFixo))
 			return false;
-		if (telefoneContato02 == null) {
-			if (other.telefoneContato02 != null)
+		if (telefoneCelular == null) {
+			if (other.telefoneCelular != null)
 				return false;
-		} else if (!telefoneContato02.equals(other.telefoneContato02))
+		} else if (!telefoneCelular.equals(other.telefoneCelular))
 			return false;
 		return true;
 	}

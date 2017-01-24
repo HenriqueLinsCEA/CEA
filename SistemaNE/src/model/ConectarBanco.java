@@ -3,116 +3,73 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 
 public class ConectarBanco {
 	
-	private static String HOST = "localhost";
-	private static String PORTA = "5432";
-	private static String LOGIN = "postgres";
-	private static String SENHA = "1006";
-	private static String BANCO = "SistemaNE";
-	
-	
-	private static String URL = "jdbc:postgresql://"+ HOST +":"+ PORTA +"/" + BANCO;
-
-	private static final String DRIVER = "org.postgresql.Driver";
-
-
-	public static Connection getConnection() {
+	private static String host = "localhost";
+	private static String porta = "5432";
+	private static String login = "postgres";
+	private static String senha= "1006";
+	private static String banco = "SistemaNE";
 		
+	private static String url = "jdbc:postgresql://"+ host +":"+ porta +"/" + banco;
 
+	private static final String driver = "org.postgresql.Driver";
+
+	public Connection geraConexao() {
+		
+		Connection conexao = null;
 		
 		try {
 
-			Class.forName(DRIVER);
+			Class.forName(driver);
 
-			return DriverManager.getConnection(URL, LOGIN, SENHA);
+			return DriverManager.getConnection(url, login, senha);
 
-		} catch (ClassNotFoundException e) {
-
-			JOptionPane.showMessageDialog(null, "Erro de acesso" + e);
-
+} catch (ClassNotFoundException e) {
+			
+			JOptionPane.showMessageDialog(null,"Classe não encontrada. Erro: " + e.getMessage());
+			
 		} catch (SQLException e) {
-
-			JOptionPane.showMessageDialog(null, "Erro de acesso SQL" + e);
-
-			throw new RuntimeException(e);
-
+			
+			JOptionPane.showMessageDialog(null,"Ocorreu um erro de SQL. Erro: " + e.getMessage());
+			
 		}
-		return null;
+		
+		return conexao;
 	}
 	
-	public static Connection getConnectionTeste() {
+	
+/*public Connection geraConexao() {
+		
+		Connection conexao = null;
 
 		try {
+			
+		
+			Class.forName("org.postgresql.Driver");
+			String url = "jdbc:postgresql://localhost:5432/SistemaNE";
+			String usuario = "postgres";
+			String senha = "1006";
 
-			Class.forName(DRIVER);
-			
-			
-			if (!DriverManager.getConnection(URL, LOGIN, SENHA).equals(null)){
-				
-				JOptionPane.showMessageDialog(null, "Conectado ao Banco");
-				
-			}
-			
-			return DriverManager.getConnection(URL, LOGIN, SENHA);
-			
+			conexao = DriverManager.getConnection(url, usuario, senha);
 			
 		} catch (ClassNotFoundException e) {
-
-			JOptionPane.showMessageDialog(null, "Erro de acesso" + e);
 			
-			return null;
-
-		
+			System.out.println("Classe não encontrada. Erro: " + e.getMessage());
+			
 		} catch (SQLException e) {
-
 			
-			JOptionPane.showMessageDialog(null, "Erro de acesso SQL" + e);
-			
-			return null;
+			System.out.println("Ocorreu um erro de SQL. Erro: " + e.getMessage());
 			
 		}
 		
-		
-	}
+		return conexao;
+	}*/
+
 	
 	
-	
-	
-	public static String getHOST() {
-		return HOST;
-	}
-
-	public static void setHOST(String hOST) {
-		HOST = hOST;
-	}
-
-	public static String getPORTA() {
-		return PORTA;
-	}
-
-	public static void setPORTA(String pORTA) {
-		PORTA = pORTA;
-	}
-
-	public static String getSENHA() {
-		return SENHA;
-	}
-
-	public static void setSENHA(String sENHA) {
-		SENHA = sENHA;
-	}
-
-	public static String getLOGIN() {
-		return LOGIN;
-	}
-
-	public static void setLOGIN(String lOGIN) {
-		LOGIN = lOGIN;
-	}
 
 
 }

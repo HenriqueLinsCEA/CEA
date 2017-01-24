@@ -1,11 +1,8 @@
 package controller.cliente;
 
 import java.sql.Date;
-
-import javax.swing.text.MaskFormatter;
-
-import controller.Contato;
-import controller.Endereco;
+import controller.contato.Contato;
+import controller.endereco.Endereco;
 
 public class Cliente {
 
@@ -14,13 +11,29 @@ public class Cliente {
 	private String razaoSocial;
 	private String cnpj;
 	private String inscricaoEstadual;
-	private Boolean statusCliente;
+	private Date clienteDesde;
+	private String statusCliente;
 	private Endereco endereco;
 	private Contato contato;
-	private Date clienteDesde;
 
-	public void cliente() {
+	public Cliente(String nomeFantasia, String razaoSocial, String cnpj, String inscricaoEstadual, Date clienteDesde,
+			String statusCliente) {
 
+		this.nomeFantasia = nomeFantasia;
+		this.razaoSocial = razaoSocial;
+		this.cnpj = cnpj;
+		this.inscricaoEstadual = inscricaoEstadual;
+		this.statusCliente = statusCliente;
+		this.clienteDesde = clienteDesde;
+
+	}
+
+	public Cliente(Contato contato) {
+		this.contato = contato;
+	}
+
+	public Cliente(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	public int getId_cliente() {
@@ -63,11 +76,11 @@ public class Cliente {
 		this.inscricaoEstadual = inscricaoEstadual;
 	}
 
-	public Boolean getStatusCliente() {
+	public String getStatusCliente() {
 		return statusCliente;
 	}
 
-	public void setStatusCliente(Boolean statusCliente) {
+	public void setStatusCliente(String statusCliente) {
 		this.statusCliente = statusCliente;
 	}
 
@@ -165,73 +178,7 @@ public class Cliente {
 		return true;
 	}
 
-	public static MaskFormatter CPF(String Mascara) {
-
-		MaskFormatter F_Mascara = new MaskFormatter();
-		try {
-			F_Mascara.setMask("###.###.###-##"); // Atribui a mascara
-			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
-													// preencimento
-		} catch (Exception excecao) {
-			excecao.printStackTrace();
-		}
-		return F_Mascara;
-	}
-
-	public static MaskFormatter CNPJ(String Mascara) {
-
-		MaskFormatter F_Mascara = new MaskFormatter();
-		try {
-			F_Mascara.setMask("##.###.###/####-##"); // Atribui a mascara
-			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
-													// preencimento
-		} catch (Exception excecao) {
-			excecao.printStackTrace();
-		}
-		return F_Mascara;
-	}
-
-	public static MaskFormatter TelefoneFixo(String Mascara) {
-
-		MaskFormatter F_Mascara = new MaskFormatter();
-		try {
-			F_Mascara.setMask("(##) ####-####"); // Atribui a mascara
-			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
-													// preencimento
-		} catch (Exception excecao) {
-			excecao.printStackTrace();
-		}
-		return F_Mascara;
-	}
-
-	public static MaskFormatter TelefoneCelular(String Mascara) {
-
-		MaskFormatter F_Mascara = new MaskFormatter();
-		try {
-			F_Mascara.setMask("(##) #####-####"); // Atribui a mascara
-			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
-													// preencimento
-		} catch (Exception excecao) {
-			excecao.printStackTrace();
-		}
-		return F_Mascara;
-	}
-
-	public static MaskFormatter CEP(String Mascara) {
-
-		MaskFormatter F_Mascara = new MaskFormatter();
-		try {
-			F_Mascara.setMask("#####-###"); // Atribui a mascara
-			F_Mascara.setPlaceholderCharacter(' '); // Caracter para
-													// preencimento
-		} catch (Exception excecao) {
-			excecao.printStackTrace();
-		}
-		return F_Mascara;
-	}
-
-	public static String removerMascara(String cpf) {
-		return cpf.replaceAll("\\D", "");
-	}
+	
+	
 
 }

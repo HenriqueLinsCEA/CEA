@@ -18,7 +18,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import controller.Usuario;
+import controller.usuario.Usuario;
 
 public class JfTelaLogin extends JFrame {
 
