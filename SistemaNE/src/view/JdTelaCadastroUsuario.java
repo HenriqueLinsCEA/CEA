@@ -23,6 +23,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import controller.MaxLengthTextDocument;
 import controller.cliente.Cliente;
 import controller.cliente.ClienteRN;
 import controller.endereco.Endereco;
@@ -226,6 +227,11 @@ public class JdTelaCadastroUsuario extends JDialog {
 		pfSenha = new JPasswordField();
 		pfSenha.setColumns(10);
 		pfSenha.setBounds(337, 207, 104, 20);
+
+		MaxLengthTextDocument maxLength = new MaxLengthTextDocument();
+		maxLength.setMaxChars(7);
+		pfSenha.setDocument(maxLength);
+
 		contentPanel.add(pfSenha);
 
 		JLabel lblTelefone = new JLabel("*Telefone do usuário");
@@ -244,6 +250,11 @@ public class JdTelaCadastroUsuario extends JDialog {
 		pfConfirmarSenha = new JPasswordField();
 		pfConfirmarSenha.setColumns(10);
 		pfConfirmarSenha.setBounds(462, 207, 104, 20);
+
+		MaxLengthTextDocument maxLength2 = new MaxLengthTextDocument();
+		maxLength2.setMaxChars(7);
+		pfConfirmarSenha.setDocument(maxLength2);
+
 		contentPanel.add(pfConfirmarSenha);
 
 		JLabel lblStatusUsuario = new JLabel("* Status");
@@ -292,11 +303,10 @@ public class JdTelaCadastroUsuario extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						
+
 						String emailValido = tfEmailUsuario.getText().toLowerCase();
 
-						boolean valido = controller.ValidarCpf.isCPF(UsuarioRN
-								.removerMascara(ftfCpf.getText()));
+						boolean valido = controller.ValidarCpf.isCPF(UsuarioRN.removerMascara(ftfCpf.getText()));
 
 						if (tfNomeCompletoUsuario.getText().isEmpty()) {
 
@@ -315,15 +325,15 @@ public class JdTelaCadastroUsuario extends JDialog {
 							JOptionPane.showMessageDialog(null, "Digite o CPF do usuário");
 
 							ftfCpf.requestFocus();
-							
-						}else if (valido == false) {
 
-								JOptionPane.showMessageDialog(null, "CPF inválido");
+						} else if (valido == false) {
 
-								ftfCpf.setText("");
-								ftfCpf.requestFocus();
+							JOptionPane.showMessageDialog(null, "CPF inválido");
 
-						} else if (ftfTelefoneUsuario.getText().isEmpty()) {
+							ftfCpf.setText("");
+							ftfCpf.requestFocus();
+
+						} else if (ftfTelefoneUsuario.getText().equals("(  )      -    ")) {
 
 							JOptionPane.showMessageDialog(null, "Digite o telefone do usuário");
 
@@ -335,10 +345,9 @@ public class JdTelaCadastroUsuario extends JDialog {
 
 							tfEmailUsuario.requestFocus();
 
-						} else if (!Pattern
-								.matches(
-										"\\b(^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@([A-Za-z0-9-])+(\\.[A-Za-z0-9-]+)*((\\.[A-Za-z0-9]{2,})|(\\.[A-Za-z0-9]{2,}\\.[A-Za-z0-9]{2,}))$)\\b",
-										emailValido)) {
+						} else if (!Pattern.matches(
+								"\\b(^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@([A-Za-z0-9-])+(\\.[A-Za-z0-9-]+)*((\\.[A-Za-z0-9]{2,})|(\\.[A-Za-z0-9]{2,}\\.[A-Za-z0-9]{2,}))$)\\b",
+								emailValido)) {
 
 							JOptionPane.showMessageDialog(null, "E-mail invalido");
 
@@ -369,24 +378,24 @@ public class JdTelaCadastroUsuario extends JDialog {
 
 							pfSenha.requestFocus();
 
-						}  else if (pfSenha.getPassword().length < 6) {
+						} else if (pfSenha.getPassword().length < 6) {
 
-							JOptionPane.showMessageDialog(null,
-									"Digite uma senha com 6 Dígitos");
-
+							JOptionPane.showMessageDialog(null, "Digite uma senha com 6 Dígitos");
+							
+							pfSenha.setText("");
+							pfConfirmarSenha.setText("");
 							pfSenha.requestFocus();
 
-						}else if (pfConfirmarSenha.getPassword().equals("")) {
+						} else if (String.valueOf(pfConfirmarSenha.getPassword() )== null ) {
 
 							JOptionPane.showMessageDialog(null, "Digite a confirmação da senha para o usuário");
 
 							pfConfirmarSenha.requestFocus();
 
-						} else if (!String.valueOf(pfSenha.getPassword()).equals(
-								String.valueOf(pfConfirmarSenha.getPassword()))) {
+						} else if (!String.valueOf(pfSenha.getPassword())
+								.equals(String.valueOf(pfConfirmarSenha.getPassword()))) {
 
-							JOptionPane.showMessageDialog(null,
-									"A senha e sua confirmação não estão iguais");
+							JOptionPane.showMessageDialog(null, "A senha e sua confirmação não estão iguais");
 
 							pfSenha.setText("");
 							pfConfirmarSenha.setText("");
@@ -422,40 +431,46 @@ public class JdTelaCadastroUsuario extends JDialog {
 
 							tfCidade.requestFocus();
 
-						} else if (tfCep.getText().isEmpty()) {
+						} else if (cbUf.getSelectedItem().equals("")) {
+
+							JOptionPane.showMessageDialog(null, "Selecione a unidade federal");
+
+							cbNivelAcesso.requestFocus();
+
+						} else if (tfCep.getText().equals("     -   ")) {
 
 							JOptionPane.showMessageDialog(null, "Digite o CEP");
 
 							tfCep.requestFocus();
 
 						} else {
-						
 
-						java.util.Date dataUtil = JdcDtNascimento.getDate();
-						java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
+							java.util.Date dataUtil = JdcDtNascimento.getDate();
+							java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
 
-						Endereco endereco = new Endereco(tfLogradouro.getText().toUpperCase(), tfNumero.getText(),
-								tfComplemento.getText().toUpperCase(), tfBairro.getText().toUpperCase(),
-								tfCidade.getText().toUpperCase(), String.valueOf(cbUf.getSelectedItem()),
-								tfCep.getText());
+							Endereco endereco = new Endereco(tfLogradouro.getText().toUpperCase(), tfNumero.getText(),
+									tfComplemento.getText().toUpperCase(), tfBairro.getText().toUpperCase(),
+									tfCidade.getText().toUpperCase(), String.valueOf(cbUf.getSelectedItem()),
+									tfCep.getText());
 
-						Login login = new Login(tfLogin.getText().toLowerCase(), String.valueOf(pfSenha.getPassword()),
-								String.valueOf(cbNivelAcesso.getSelectedItem()));
+							Login login = new Login(tfLogin.getText().toLowerCase(),
+									String.valueOf(pfSenha.getPassword()),
+									String.valueOf(cbNivelAcesso.getSelectedItem()));
 
-						Usuario usuario = new Usuario(tfNomeCompletoUsuario.getText().toUpperCase(),
-								tfFuncao.getText().toUpperCase(), ftfCpf.getText(), ftfTelefoneUsuario.getText(),
-								tfEmailUsuario.getText().toLowerCase(),
-								String.valueOf(cbStatusUsuario.getSelectedItem()), dataSql);
+							Usuario usuario = new Usuario(tfNomeCompletoUsuario.getText().toUpperCase(),
+									tfFuncao.getText().toUpperCase(), ftfCpf.getText(), ftfTelefoneUsuario.getText(),
+									tfEmailUsuario.getText().toLowerCase(),
+									String.valueOf(cbStatusUsuario.getSelectedItem()), dataSql);
 
-						usuario.setEndereco(endereco);
-						usuario.setLogin(login);
+							usuario.setEndereco(endereco);
+							usuario.setLogin(login);
 
-						UsuarioRN usuarioRN = new UsuarioRN();
-						usuarioRN.CadastrarUsuario(usuario);
+							UsuarioRN usuarioRN = new UsuarioRN();
+							usuarioRN.CadastrarUsuario(usuario);
 
 						}
 					}
-					
+
 				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
