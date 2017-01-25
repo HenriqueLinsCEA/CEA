@@ -4,19 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
 	<classpathentry kind="lib" path="src/lib/postgresql-9.4.1208.jre6.jar"/>
-	<classpathentry kind="lib" path="jgoodies-common-1.8.0.jar" sourcepath="jgoodies-common-1.8.0-sources.jar"/>
-	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jcalendar-1.4/lib/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jcalendar-1.4/lib/jgoodies-common-1.2.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jcalendar-1.4/lib/jgoodies-looks-2.4.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jcalendar-1.4/lib/junit-4.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/nachocalendar-0.23/nachocalendar-0.23/lib/nachocalendar-0.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/nachocalendar-0.23/nachocalendar-0.23/lib/nachocalendar-0.23-demo.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jgoodies-validation-2_5_1-20141229/jgoodies-validation-2.5.1/jgoodies-validation-2.5.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jgoodies-validation-2_5_1-20141229/jgoodies-validation-2.5.1/jgoodies-validation-2.5.1-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jgoodies-validation-2_5_1-20141229/jgoodies-validation-2.5.1/jgoodies-validation-2.5.1-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jgoodies-validation-2_5_1-20141229/jgoodies-validation-2.5.1/jgoodies-validation-2.5.1-tests.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jgoodies-binding-2.7.0-sources.jar/jgoodies-binding-2.7.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/henri/Downloads/jgoodies-animation-1.4.2.jar/jgoodies-animation-1.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/henrique.fonseca/Downloads/jcalendar-1.4.jar/jcalendar-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
