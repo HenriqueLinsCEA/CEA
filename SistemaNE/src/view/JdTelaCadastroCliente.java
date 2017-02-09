@@ -205,7 +205,7 @@ public class JdTelaCadastroCliente extends JDialog {
 		cbUF.setBounds(552, 471, 63, 20);
 
 		JLabel label_16 = new JLabel("* Campo Obrigat\u00F3rio.");
-		label_16.setBounds(88, 513, 194, 14);
+		label_16.setBounds(88, 501, 194, 14);
 
 		JLabel lblVendedor = new JLabel("* Vendedor");
 		lblVendedor.setBounds(566, 224, 97, 14);

@@ -37,8 +37,29 @@ public class Cliente implements Serializable {
 		this.inscricaoEstadual = inscricaoEstadual;
 		this.statusCliente = statusCliente;
 		this.clienteDesde = clienteDesde;
-
 	}
+	
+	
+	public Cliente(String nomeFantasia, String razaoSocial, String cnpj, String inscricaoEstadual, Date clienteDesde,
+			String statusCliente, Endereco endereco, Contato contato, String observacoes, boolean crachas,
+			boolean cartoes, boolean pontaoAcesso, boolean impressaoEletronica, boolean outros) {
+	
+		this.nomeFantasia = nomeFantasia;
+		this.razaoSocial = razaoSocial;
+		this.cnpj = cnpj;
+		this.inscricaoEstadual = inscricaoEstadual;
+		this.clienteDesde = clienteDesde;
+		this.statusCliente = statusCliente;
+		this.endereco = endereco;
+		this.contato = contato;
+		this.observacoes = observacoes;
+		this.crachas = crachas;
+		this.cartoes = cartoes;
+		this.pontaoAcesso = pontaoAcesso;
+		this.impressaoEletronica = impressaoEletronica;
+		this.outros = outros;
+	}
+
 
 	public int getId_cliente() {
 		return id_cliente;
