@@ -19,7 +19,14 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.event.ActionEvent;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class JfTelaInicial extends JFrame {
 
@@ -149,29 +156,80 @@ public class JfTelaInicial extends JFrame {
 
 			}
 		});
+		
+		JLabel lblLogado = new JLabel("");
+	
+		DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, new Locale(
+				"pt", "BR"));
+		df.format(new Date());
+
+		class Relogio extends TimerTask {
+
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy "
+					+ " HH:mm:ss");
+
+			private JLabel lblHoraAtual;
+
+			public Relogio(JLabel lblHoraAtual) {
+				this.lblHoraAtual = lblHoraAtual;
+
+			}
+
+			public void run() {
+				
+				lblLogado.setText((sdf.format(new Date())) + "      |      LOGADO:    " +controller.IniciarAplicativoSistemaNE.logado.getNomeUsuario() + "       |       (     " + controller.IniciarAplicativoSistemaNE.logado.getFuncaoUsuario() + "     )");
+				
+
+			}
+		}
+
+		Timer t = new Timer();
+		t.scheduleAtFixedRate(new Relogio(lblLogado), 0, 1000);
+		
+		
+		
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup().addGap(223)
-						.addComponent(lblLogo, GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE).addGap(224))
-				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap(1027, Short.MAX_VALUE)
-						.addComponent(button, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE).addGap(5)
-						.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE).addGap(30))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup().addGap(31)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(223)
+					.addComponent(lblLogo, GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+					.addGap(224))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(31)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblLogado, GroupLayout.PREFERRED_SIZE, 826, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+							.addComponent(button, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+							.addGap(5)
+							.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+							.addGap(30))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(btnUsuarios, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnClientes, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE))
-						.addContainerGap(995, Short.MAX_VALUE)));
-		gl_contentPane
-				.setVerticalGroup(
-						gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(
-										gl_contentPane.createSequentialGroup().addGap(107).addComponent(btnClientes)
-												.addGap(30).addComponent(btnUsuarios).addGap(14)
-												.addComponent(lblLogo, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-												.addGap(163)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(button).addComponent(button_1))
-												.addContainerGap()));
+							.addContainerGap(995, Short.MAX_VALUE))))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(107)
+					.addComponent(btnClientes)
+					.addGap(30)
+					.addComponent(btnUsuarios)
+					.addGap(14)
+					.addComponent(lblLogo, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+					.addGap(163)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+							.addComponent(button)
+							.addComponent(lblLogado, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+						.addComponent(button_1))
+					.addContainerGap())
+		);
 		contentPane.setLayout(gl_contentPane);
 	}
 }

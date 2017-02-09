@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
@@ -18,7 +19,9 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import controller.usuario.Usuario;
+import controller.MaxLengthTextDocument;
+import controller.login.Login;
+import controller.login.LoginRN;
 
 public class JfTelaLogin extends JFrame {
 
@@ -29,9 +32,7 @@ public class JfTelaLogin extends JFrame {
 	private JPanel contentPane;
 	private JPasswordField pfSenha;
 	JComboBox<String> cbUsuario = new JComboBox<String>();
-	private List <Usuario> listaUsuario;
-
-	
+	private List<Login> listaLogin;
 
 	/**
 	 * Launch the application.
@@ -40,13 +41,11 @@ public class JfTelaLogin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UIManager
-							.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+					UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 					JfTelaLogin frame = new JfTelaLogin();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
-					
-										
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -80,54 +79,75 @@ public class JfTelaLogin extends JFrame {
 		pfSenha = new JPasswordField();
 		pfSenha.setHorizontalAlignment(SwingConstants.LEFT);
 		pfSenha.setBounds(77, 49, 150, 20);
+
+		MaxLengthTextDocument maxLength = new MaxLengthTextDocument();
+		maxLength.setMaxChars(7);
+		pfSenha.setDocument(maxLength);
+
 		contentPane.add(pfSenha);
-		
-		
 
 		JButton btnOk = new JButton("OK");
 		btnOk.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnOk.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnOk.setMnemonic('O');
 		getRootPane().setDefaultButton(btnOk);
-		
 
 		cbUsuario.setBounds(77, 23, 150, 20);
 		contentPane.add(cbUsuario);
-	
-		//listaUsuario = new ControleMetodosUsuario().listarUsuario();
 
-		
-		//for(Usuario user : listaUsuario){
-			
-			//cbUsuario.addItem(user.getLogin());
-			
-		//}
-	
-		
+		LoginRN loginRN = new LoginRN();
+		listaLogin = loginRN.ListarLogin();
+
+		for (Login user : listaLogin) {
+
+			cbUsuario.addItem(user.getLogin().toString());
+
+		}
+
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				try {
-					
-					dispose();
-					
-					UIManager
-					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-					JfTelaInicial frame = new JfTelaInicial();
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-					
-					
-					
-					
-				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-						| UnsupportedLookAndFeelException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				
 
+				if (cbUsuario.getSelectedItem().equals("") || String.valueOf(pfSenha.getPassword()).equals("")) {
+
+					JOptionPane.showMessageDialog(null, "Selecione o login e digite a senha!");
+
+				} else {
+
+					LoginRN loginRN = new LoginRN();
+
+					controller.IniciarAplicativoSistemaNE.logado = loginRN
+							.login(String.valueOf(cbUsuario.getSelectedItem()), String.valueOf(pfSenha.getPassword()));
+
+					if (controller.IniciarAplicativoSistemaNE.logado.getLogin() == null) {
+
+						JOptionPane.showMessageDialog(null, "Senha inválida");
+
+						cbUsuario.grabFocus();
+
+					} else {
+
+						JOptionPane.showMessageDialog(null, "Usuário Logado");
+
+						dispose();
+
+						try {
+
+							UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+							JfTelaInicial frame = new JfTelaInicial();
+							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
+
+						} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+								| UnsupportedLookAndFeelException e1) {
+							
+							e1.printStackTrace();
+						}
+
+					}
+					cbUsuario.setSelectedItem("");
+					pfSenha.setText("");
+
+				}
 
 			}
 		});
@@ -138,6 +158,7 @@ public class JfTelaLogin extends JFrame {
 		btnCancelar.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnCancelar.setMnemonic('C');
 		btnCancelar.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent arg0) {
 
 				dispose();
@@ -146,9 +167,7 @@ public class JfTelaLogin extends JFrame {
 		});
 		btnCancelar.setBounds(139, 82, 89, 23);
 		contentPane.add(btnCancelar);
-	
-	
+
 	}
 
-	
 }

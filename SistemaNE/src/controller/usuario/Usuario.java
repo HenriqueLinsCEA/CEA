@@ -18,6 +18,9 @@ public class Usuario {
 	private Login login;
 	private Endereco endereco;
 
+	
+	public Usuario(){}
+	
 	public Usuario(String nomeUsuario, String funcaoUsuario, String cpf, String telefoneUsuario, String emailUsuario,
 			String statusUsuario, Date dataNascimento) {
 
@@ -186,5 +189,18 @@ public class Usuario {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Usuario [id_usuario=").append(id_usuario).append(", nomeUsuario=").append(nomeUsuario)
+				.append(", funcaoUsuario=").append(funcaoUsuario).append(", cpf=").append(cpf)
+				.append(", telefoneUsuario=").append(telefoneUsuario).append(", emailUsuario=").append(emailUsuario)
+				.append(", statusUsuario=").append(statusUsuario).append(", dataNascimento=").append(dataNascimento)
+				.append(", login=").append(login).append(", endereco=").append(endereco).append("]");
+		return builder.toString();
+	}
+	
+	
 
 }
